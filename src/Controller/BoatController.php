@@ -26,6 +26,7 @@ class BoatController extends AbstractController
     #[Route('/direction/{direction}', name: 'moveDirection', requirements: ['direction' => '[NSEW]'])]
     public function moveDirection(string $direction, BoatRepository $boatRepository, EntityManagerInterface $em): Response
     {
+       
         $boat = $boatRepository->findOneBy([]);
         if ($direction === "E")
         {
@@ -47,7 +48,6 @@ class BoatController extends AbstractController
             $y = $boat->getCoordY()-1;
             $boat->setCoordY($y);
         }
-        
         $em->flush();
         return $this->redirectToRoute('map');
     }
