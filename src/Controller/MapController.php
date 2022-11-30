@@ -21,10 +21,14 @@ class MapController extends AbstractController
         }
 
         $boat = $boatRepository->findOneBy([]);
+        $boatCoordX=$boat->getCoordX();
+        $boatCoordY=$boat->getCoordY();
+        $tile = $tileRepository->findOneBy(['coordX'=>$boatCoordX,'coordY'=> $boatCoordY]);
 
         return $this->render('map/index.html.twig', [
             'map'  => $map ?? [],
             'boat' => $boat,
+            'tile'=> $tile
         ]);
     }
 }
