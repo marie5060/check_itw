@@ -51,7 +51,7 @@ class BoatController extends AbstractController
             $boat->setCoordY($y);
         }
 
-        //test de la method tileExists et retour d'une erreur si tile n'existe pas ou alors avancé du bateau 
+        //test de la method tileExists et retour d'une erreur si tile n'existe pas sinon alors avancé du bateau 
       
         $em->flush();
         return $this->redirectToRoute('map');
