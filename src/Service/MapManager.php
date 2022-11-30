@@ -4,10 +4,10 @@ use App\Repository\TileRepository;
 
 class MapManager 
 {
-    private TileRepository $tileRepository;
+     
 
     
-    public function __construct(TileRepository $tileRepository)
+    public function __construct(private TileRepository $tileRepository)
     {
         $this->tileRepository = $tileRepository;
     }
@@ -23,5 +23,9 @@ class MapManager
         //je vérifie s'il y a des coordonnées et je renvoie un bool
         return $tile ? true : false ;
     }
+    // public function getRandomIslands(int $x,int $y) : bool
+    // {
+    // }
+
 
 }

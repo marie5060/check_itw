@@ -52,6 +52,11 @@ class BoatController extends AbstractController
         }
 
         //test de la method tileExists et retour d'une erreur si tile n'existe pas sinon alors avancé du bateau 
+        $tile = $mapManager->tileExists($boat->getCoordX(),$boat->getcoordY());
+        if (!$tile){
+            $this->addFlash('warning', 'loupé');
+            return $this->redirectToRoute('map');
+        }
       
         $em->flush();
         return $this->redirectToRoute('map');
